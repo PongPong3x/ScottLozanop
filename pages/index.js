@@ -92,7 +92,7 @@ const [url, setURL] = useState("");
 <>
  {!session && (
         <>
-         <span>👥</span> <br />
+         Check out my art! <span>🎨</span> <br />
           
         </>
       )}

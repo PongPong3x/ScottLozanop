@@ -4,6 +4,8 @@ import { create as ipfsHttpClient } from 'ipfs-http-client'
 import Web3Modal from 'web3modal'
 import detectEthereumProvider from '@metamask/detect-provider';
 import { signIn, useSession } from "next-auth/client"
+import { useRouter } from 'next/router'
+import { Link } from 'next/link'
 
 
 
@@ -95,6 +97,7 @@ export default function CreateItem({}) {
   <>
   {session ? (
     <div className="flex justify-center">
+    
       <div className="w-1/2 flex flex-col pb-12">
         <input 
           placeholder="Asset Name"

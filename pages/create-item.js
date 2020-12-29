@@ -23,7 +23,7 @@ import Market from '../artifacts/contracts/Market.sol/NFTMarket.json'
 
 export default function CreateItem({}) {
   
- const [session, loading] = useSession()
+  const [session, loading] = useSession()
 
   const [fileUrl, setFileUrl] = useState(null)
   const [formInput, updateFormInput] = useState({ price: '', name: '', description: '' })
@@ -67,6 +67,7 @@ export default function CreateItem({}) {
     const connection = await web3Modal.connect()
     const provider = new ethers.providers.Web3Provider(connection)    
     const signer = provider.getSigner()
+    const router = useRouter()
 
     /* next, create the item */
     let contract = new ethers.Contract(nftaddress, NFT.abi, signer)
@@ -97,7 +98,7 @@ export default function CreateItem({}) {
   <>
   {session ? (
     <div className="flex justify-center">
-    
+
       <div className="w-1/2 flex flex-col pb-12">
         <input 
           placeholder="Asset Name"

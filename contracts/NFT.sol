@@ -9,6 +9,8 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 import "hardhat/console.sol";
 
+//Ownable allows for the secondary sales royalties on OpenSea for the contract owner. Need to define how to claim self as contract owner/originator.
+
 contract NFT is ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;

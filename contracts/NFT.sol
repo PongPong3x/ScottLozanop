@@ -18,6 +18,7 @@ contract NFT is ERC721URIStorage, Ownable {
 
     constructor(address marketplaceAddress) ERC721("AOJToken", "AOJ") {
         contractAddress = marketplaceAddress;
+        
     }
 
     function createToken(string memory tokenURI) public returns (uint) {

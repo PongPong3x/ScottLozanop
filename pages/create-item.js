@@ -9,7 +9,6 @@ import { Link } from 'next/link'
 
 
 
-
 const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
 
 import {
@@ -98,7 +97,6 @@ export default function CreateItem({}) {
   <>
   {session ? (
     <div className="flex justify-center">
-
       <div className="w-1/2 flex flex-col pb-12">
         <input 
           placeholder="Asset Name"
@@ -126,15 +124,15 @@ export default function CreateItem({}) {
             <img className="rounded mt-4" width="350" src={fileUrl} />
           )
         }
-        <button onClick={createMarket} className="bg-pink-500 hover:bg-pink-400 text-white font-bold py-2 px-2 border-b-4 border-pink-700 hover:border-pink-500 rounded">
+        <button onClick={createMarket} className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-2 border-b-4 border-blue-700 hover:border-blue-500 rounded">
           Create Digital Asset
         </button>
       </div>
     </div>
     ) : (
     <p>
-          <p className="mr-6 text-pink-500">Only the artist Jaleh is allowed to create items here.</p>
-          <button onClick={signIn} className="bg-pink-500 hover:bg-pink-400 text-white font-bold py-2 px-2 border-b-4 border-pink-700 hover:border-pink-500 rounded">Sign in</button>
+          <p className="mr-6 text-blue-500">Only the artist Jaleh is allowed to create items here.</p>
+          <button onClick={signIn} className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-2 border-b-4 border-blue-700 hover:border-blue-500 rounded">Sign in</button>
     </p>
       )}
     </>

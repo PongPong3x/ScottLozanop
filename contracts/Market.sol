@@ -10,16 +10,20 @@ import "hardhat/console.sol";
 
 contract NFTMarket is ReentrancyGuard {
   using Counters for Counters.Counter;
+  //Counters comes with @openzeppelin contracts. Increments number of nfts so you can add them to a state variable as seen directly below.
   Counters.Counter private _itemIds;
   Counters.Counter private _itemsSold;
 
   address payable owner;
+//Owner has to pay this. Since it's only the creator, it may be best to set this to 0
   uint256 listingPrice = 0.00023 ether;
 
+// Constructor sets variable owner, that must be payable and the one who calls functions as the sender to mint nfts.
   constructor() {
     owner = payable(msg.sender);
   }
 
+//Make a struct to store all the states applicable to each market item.
   struct MarketItem {
     uint itemId;
     address nftContract;
@@ -30,8 +34,10 @@ contract NFTMarket is ReentrancyGuard {
     bool sold;
   }
 
+// Store unique numbers of market items.
   mapping(uint256 => MarketItem) private idToMarketItem;
 
+// Emit an event which enters data about each market items to be stored in the above mapping. 
   event MarketItemCreated (
     uint indexed itemId,
     address indexed nftContract,
@@ -42,12 +48,12 @@ contract NFTMarket is ReentrancyGuard {
     bool sold
   );
 
-  /* Returns the listing price of the contract */
+  // Returns the listing price of the contract
   function getListingPrice() public view returns (uint256) {
     return listingPrice;
   }
 
-  /* Places an item for sale on the marketplace */
+  //Places an item for sale on the marketplace
   function createMarketItem(
     address nftContract,
     uint256 tokenId,

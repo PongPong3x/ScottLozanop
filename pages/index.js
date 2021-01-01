@@ -13,7 +13,12 @@ import {
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
 import Market from '../artifacts/contracts/Market.sol/NFTMarket.json'
 
+
+
 export default function Home() {
+
+
+
 
 const [session, loading] = useSession()
  
@@ -99,13 +104,11 @@ const [url, setURL] = useState("");
       {session && (
         <>
           Signed in as {session.user.name} <br />
-          <button onClick={signOut} className="bg-pink-500 hover:bg-pink-400 text-white font-bold py-2 px-2 border-b-4 border-pink-700 hover:border-pink-500 rounded">Sign out</button>
+          <button onClick={signOut} className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-2 border-b-4 border-blue-700 hover:border-blue-500 rounded">Sign out</button>
         </>
       )}
 
     <div className="flex justify-center">
-
- 
 
       <div className="px-4" style={{ maxWidth: '1600px' }}>
     
@@ -122,7 +125,7 @@ const [url, setURL] = useState("");
                 </div>
                 <div className="p-4 bg-black">
                   <p className="text-2xl mb-4 font-bold text-white">{nft.price} ETH</p>
-                  <button className="bg-pink-500 hover:bg-pink-400 text-white font-bold py-2 px-12 border-b-4 border-pink-700 hover:border-pink-500 rounded" onClick={() => buyNft(nft)}>Buy</button>
+                  <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-12 border-b-4 border-blue-700 hover:border-blue-500 rounded" onClick={() => buyNft(nft)}>Buy</button>
                 </div>
               </div>
             ))
@@ -130,6 +133,8 @@ const [url, setURL] = useState("");
         </div>
       </div>
     </div>
+    
     </>
+    
   )
 }

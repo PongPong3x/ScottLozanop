@@ -6,11 +6,11 @@ const privateKey = fs.readFileSync(".secret").toString().trim() || "012345678901
 module.exports = {
   defaultNetwork: "hardhat",
   networks: {
-    // hardhat: {
-    //   chainId: 1337
-    // },
+    hardhat: {
+      chainId: 1337
+    },
     mumbai: {
-      url: "https://polygon-mumbai.infura.io/v3/9a6356648ece4a32a0f10e75fc6552f6",
+      url: "https://polygon-mumbai.infura.io/v3/3d67dbef6f8b488780529a324416cb0d",
       accounts: [`0x${privateKey}`]
     }
   },

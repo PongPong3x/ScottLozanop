@@ -4,7 +4,12 @@ import axios from 'axios'
 import Web3Modal from "web3modal"
 import { connectWallet } from "./interact.js";
 import { signIn, signOut, useSession } from "next-auth/client"
+import { Link } from 'next/link'
+import { useRouter } from 'next/router'
 
+// For deployment to localhost only, remove rpc_url in two places
+// Line 15 or importing from config (rpc_url add behind nftmarketaddress when deploying to testnet)
+// Plus add as parameter in line 50 or for loadingNFTs and setting const provider = ... JsonRPCProvider(rpc_url)
 
 import {
   nftaddress, nftmarketaddress, rpc_url
@@ -96,10 +101,9 @@ const [url, setURL] = useState("");
   return (
 <>
  {!session && (
-        <>
+      <>
          Check out my art! -JS <span>🎨</span> <br />
-          
-        </>
+       </> 
       )}
       {session && (
         <>
@@ -134,7 +138,7 @@ const [url, setURL] = useState("");
       </div>
     </div>
     
-    </>
+  </>
     
   )
 }

@@ -45,5 +45,23 @@ async function buyNft(nft) {
 
 4) Users can search on the homepage by querying the GraphQL (TBD)
 
+
+Installing Dependencies:
+
+1. Clone repository
+2. npm install 
+
+Accessing Project
+
+1. In project directory, spin up a hardhat node: npx hardhat node
+2. In seperate terminal window, run command npx hardhat run scripts/deploy.js --network mumbai
+3. Navigate to localhost in your browser
+
+Running Unit Tests
+
+1. In terminal, in root directory, run npx hardhat test
+2. Tests should be running on port 8545
+
+
 -----------------------------------------------------------------------------------------------------------------------------
 

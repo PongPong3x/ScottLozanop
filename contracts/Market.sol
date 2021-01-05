@@ -53,7 +53,8 @@ contract NFTMarket is ReentrancyGuard {
     return listingPrice;
   }
 
-  //Places an item for sale on the marketplace
+  //Places an item for sale on the marketplace. Three parameters and involves the open zeppelin contract reentrancy guard.
+  //Uses event to store data 
   function createMarketItem(
     address nftContract,
     uint256 tokenId,

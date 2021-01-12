@@ -1,5 +1,7 @@
 # Art Market
 
+## Objectives
+
 1) Should allow only creator to log in and upload content to her marketplace page. 
 
 From create-item.js
@@ -35,7 +37,7 @@ async function buyNft(nft) {
 
  ... -->
 
- Uses credentials stored in .env.local. Server-side access control not exceptionally secure. Need to base this on NFT ownership validation like BAYC.
+ TBD Uses credentials stored in .env.local. Server-side access control not exceptionally secure. Need to base this on NFT ownership validation like BAYC.
 
  
 
@@ -46,25 +48,24 @@ async function buyNft(nft) {
 4) Users can search on the homepage by querying the GraphQL (TBD)
 
 
-Installing Dependencies:
+## Installing Dependencies:
 
 1. Clone repository
 2. npm install 
 
-Accessing Project
+## Accessing Project
 
 1. In project directory, spin up a hardhat node: npx hardhat node
 2. In seperate terminal window, run command npx hardhat run scripts/deploy.js --network mumbai
 3. Navigate to localhost in your browser
 
-Running Unit Tests
+## Running Unit Tests
 
 1. In terminal, in root directory, run npx hardhat test
 2. Tests should be running on port 8545
 
 
-Ethereum address: 0x9E3A3d7A89B23F01f19E22f5C2601ed0D5cD7C88
+ # Ethereum address: 0x9E3A3d7A89B23F01f19E22f5C2601ed0D5cD7C88
 
 
 -----------------------------------------------------------------------------------------------------------------------------
-

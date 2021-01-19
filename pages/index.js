@@ -6,6 +6,7 @@ import { connectWallet } from "./interact.js";
 import { signIn, signOut, useSession } from "next-auth/client"
 import { Link } from 'next/link'
 import { useRouter } from 'next/router'
+import  useSWR  from 'swr'
 
 // For deployment to localhost only, remove rpc_url in two places
 // Line 15 or importing from config (rpc_url add behind nftmarketaddress when deploying to testnet)
@@ -18,12 +19,27 @@ import {
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
 import Market from '../artifacts/contracts/Market.sol/NFTMarket.json'
 
+const fetcher = (query) =>
+  fetch('/api/graphql', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({ query }),
+  })
+    .then((res) => res.json())
+    .then((json) => json.data)
 
 
 export default function Home() {
 
 
+  // const { data, error } = useSWR('{ users { name } }', fetcher)
 
+  //  if (error) return <div>Failed to load</div>
+  //  if (!data) return <div>Loading...</div>
+
+// const { users } = data
 
 const [session, loading] = useSession()
  

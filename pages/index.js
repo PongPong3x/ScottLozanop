@@ -142,6 +142,8 @@ const [url, setURL] = useState("");
   )
 }
 
+
+
 export async function getStaticProps() {
   const client = new ApolloClient({
   uri: 'https://api.thegraph.com/subgraphs/name/scottlozano/artmarket',

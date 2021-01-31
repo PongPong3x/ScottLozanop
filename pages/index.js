@@ -6,7 +6,7 @@ import { connectWallet } from "./interact.js";
 import { signIn, signOut, useSession } from "next-auth/client"
 import { Link } from 'next/link'
 import { useRouter } from 'next/router'
-import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+// import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
 
 // For deployment to localhost only, remove rpc_url in two places
@@ -142,35 +142,40 @@ const [url, setURL] = useState("");
   )
 }
 
-
-
 export async function getStaticProps() {
-  const client = new ApolloClient({
-  uri: 'https://api.thegraph.com/subgraphs/name/scottlozano/artmarket',
-  cache: new InMemoryCache()
-});
-const { data } = await client.query({
-  query: gql`
-    query MarketItemCreated {
-      marketItemCreateds(first: 5) {
-        id
-        itemId
-        nftContract
-        tokenId
-        }
-        tokens(first: 5) {
-          id
-          tokenID
-          contentURI
-          metadataURI
-        }
-      }
-    `
-  });
-return {
-    props: {
-      
-    }
+  return {
+    props: { },
   }
-
 }
+
+
+//// export async function getStaticProps() {
+//   const client = new ApolloClient({
+//   uri: 'https://api.thegraph.com/subgraphs/name/scottlozano/artmarket',
+//   cache: new InMemoryCache()
+// });
+// const { data } = await client.query({
+//   query: gql`
+//     query MarketItemCreated {
+//       marketItemCreateds(first: 5) {
+//         id
+//         itemId
+//         nftContract
+//         tokenId
+//         }
+//         tokens(first: 5) {
+//           id
+//           tokenID
+//           contentURI
+//           metadataURI
+//         }
+//       }
+//     `
+//   });
+// return {
+//     props: {
+      
+//     }
+//   }
+
+// }

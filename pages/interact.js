@@ -24,6 +24,7 @@ export const connectWallet = async () => {
 						{" "}
 						🦊{" "}
 						<a
+							rel="noreferrer" 
 							target="_blank"
 							href={`https://metamask.io/download.html`}
 						>

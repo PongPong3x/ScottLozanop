@@ -17,7 +17,7 @@ import {
   nftaddress, nftmarketaddress, rpc_url
 } from '../config'
 
-Const Market = [{
+const Market = [{
   "_format": "hh-sol-artifact-1",
   "contractName": "NFTMarket",
   "sourceName": "contracts/Market.sol",

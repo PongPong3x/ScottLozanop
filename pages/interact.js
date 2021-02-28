@@ -38,3 +38,5 @@ export const connectWallet = async () => {
 		};
 	}
 };
+
+export default connectWallet;

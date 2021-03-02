@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import '../styles/globals.css'
 import Link from 'next/link'
-import { connectWallet } from './interact.js'
+import { connectWallet } from '../components/interact.js'
 import { useState } from 'react'
 import NextNProgress from "nextjs-progressbar";
 import { Provider } from "next-auth/client"
@@ -9,12 +9,12 @@ import { Provider } from "next-auth/client"
 
 function Marketplace({ Component, pageProps }) {
 
+
 const [walletAddress, setWallet] = useState("");
 const [status, setStatus] = useState("");
 const [name, setName] = useState("");
 const [description, setDescription] = useState("");
 const [url, setURL] = useState("");
-
 
 const connectWalletPressed = async () => {
   const walletResponse = await connectWallet();

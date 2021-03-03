@@ -8,7 +8,7 @@ const isCorrectCredentials = credentials =>
 
 const options = {
   // Configure one or more authentication providers
-  site: process.env.NEXTAUTH_URL,
+  // site: process.env.NEXTAUTH_URL,
   providers: [
     Providers.Credentials({
       // The name to display on the sign in form (e.g. 'Sign in with...')

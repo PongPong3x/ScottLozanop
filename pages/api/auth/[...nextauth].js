@@ -8,7 +8,7 @@ const isCorrectCredentials = credentials =>
 
 const options = {
   // Configure one or more authentication providers
-  site: https://619a58e6a6a1010007e94a1e--admiring-mestorf-0150d6.netlify.app/,
+  site: process.env.NEXTAUTH_URL,
   providers: [
     Providers.Credentials({
       // The name to display on the sign in form (e.g. 'Sign in with...')

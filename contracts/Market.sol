@@ -8,17 +8,18 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 import "hardhat/console.sol";
 
+//@title this contract is NFTMarket and is the main contract that handles tracking and transfer of ownership. Uses @openzeppelin and solidity. 
 contract NFTMarket is ReentrancyGuard {
   using Counters for Counters.Counter;
-  //Counters comes with @openzeppelin contracts. Increments number of nfts so you can add them to a state variable as seen directly below.
+  //@dev Counters comes with @openzeppelin contracts. Increments number of nfts so you can add them to a state variable as seen directly below.
   Counters.Counter private _itemIds;
   Counters.Counter private _itemsSold;
 
   address payable owner;
-//Owner has to pay this. Since it's only the creator, it may be best to set this to 0
+//@Dev Owner has to pay this. Since it's only the creator, it may be best to set this to 0
   uint256 listingPrice = 0.00023 ether;
 
-// Constructor sets variable owner, that must be payable and the one who calls functions as the sender to mint nfts.
+//@Dev Constructor sets variable owner, that must be payable and the one who calls functions as the sender to mint nfts.
   constructor() {
     owner = payable(msg.sender);
   }
@@ -34,10 +35,10 @@ contract NFTMarket is ReentrancyGuard {
     bool sold;
   }
 
-// Store unique numbers of market items.
+//@dev Store unique numbers of market items.
   mapping(uint256 => MarketItem) private idToMarketItem;
 
-// Emit an event which enters data about each market items to be stored in the above mapping. 
+//@dev Emit an event which enters data about each market items to be stored in the above mapping. 
   event MarketItemCreated (
     uint indexed itemId,
     address indexed nftContract,
@@ -48,13 +49,13 @@ contract NFTMarket is ReentrancyGuard {
     bool sold
   );
 
-  // Returns the listing price of the contract
+  //@dev Returns the listing price of the contract
   function getListingPrice() public view returns (uint256) {
     return listingPrice;
   }
 
-  //Places an item for sale on the marketplace. Three parameters and involves the open zeppelin contract reentrancy guard.
-  //Uses event to store data 
+  //@dev Places an item for sale on the marketplace. Three parameters and involves the open zeppelin contract reentrancy guard.
+  //@dev Uses event to store data 
   function createMarketItem(
     address nftContract,
     uint256 tokenId,
@@ -62,10 +63,10 @@ contract NFTMarket is ReentrancyGuard {
   ) public payable nonReentrant {
     require(price > 0, "Price must be at least 1 wei");
     require(msg.value == listingPrice, "Price must be equal to listing price");
-
+    //@dev increments the itemIds using the state variable above.
     _itemIds.increment();
     uint256 itemId = _itemIds.current();
-
+    //@dev updates mapping above with a market item
     idToMarketItem[itemId] =  MarketItem(
       itemId,
       nftContract,
@@ -75,9 +76,9 @@ contract NFTMarket is ReentrancyGuard {
       price,
       false
     );
-
+    //@notice This is where the transfer happens from the creator to the MARKET. Prompts payment and metamask.
     IERC721(nftContract).transferFrom(msg.sender, address(this), tokenId);
-
+    //@dev An item is created and the event logged. See event above.
     emit MarketItemCreated(
       itemId,
       nftContract,
@@ -89,8 +90,8 @@ contract NFTMarket is ReentrancyGuard {
     );
   }
 
-  /* Creates the sale of a marketplace item */
-  /* Transfers ownership of the item, as well as funds between parties */
+  //@notice Creates the sale of a marketplace item
+  //@notice Transfers ownership of the item, as well as funds between parties
   function createMarketSale(
     address nftContract,
     uint256 itemId
@@ -98,25 +99,32 @@ contract NFTMarket is ReentrancyGuard {
     uint price = idToMarketItem[itemId].price;
     uint tokenId = idToMarketItem[itemId].tokenId;
     require(msg.value == price, "Please submit the asking price in order to complete the purchase");
-
+    //@dev This is where the buyer transfers funds to to the seller
     idToMarketItem[itemId].seller.transfer(msg.value);
+    //@dev This is where the transfer of the NFT happens from contract to the buyer
     IERC721(nftContract).transferFrom(address(this), msg.sender, tokenId);
+    //@dev the new owner is now the person who purchased the NFT
     idToMarketItem[itemId].owner = payable(msg.sender);
     idToMarketItem[itemId].sold = true;
     _itemsSold.increment();
     payable(owner).transfer(listingPrice);
   }
 
-  /* Returns all unsold market items */
+  //@notice Returns all unsold market items
+  //@dev calls fetch function which is view only
   function fetchMarketItems() public view returns (MarketItem[] memory) {
+    //@dev Gets the current item count accessing counters
     uint itemCount = _itemIds.current();
+    //@dev does a bit of math to figure the difference using both state varaibles with counters
     uint unsoldItemCount = _itemIds.current() - _itemsSold.current();
     uint currentIndex = 0;
-
+    //@dev now uses new variable unsoldItemCount to add to the Market Item array
     MarketItem[] memory items = new MarketItem[](unsoldItemCount);
     for (uint i = 0; i < itemCount; i++) {
+      //@dev Display all items owned by creator 
       if (idToMarketItem[i + 1].owner == address(0)) {
         uint currentId = i + 1;
+        //@dev 
         MarketItem storage currentItem = idToMarketItem[currentId];
         items[currentIndex] = currentItem;
         currentIndex += 1;
@@ -125,7 +133,7 @@ contract NFTMarket is ReentrancyGuard {
     return items;
   }
 
-  /* Returns only items that a user has purchased */
+  //@notice Returns only items that a user has purchased and populates to the my-assets page
   function fetchMyNFTs() public view returns (MarketItem[] memory) {
     uint totalItemCount = _itemIds.current();
     uint itemCount = 0;
@@ -149,7 +157,7 @@ contract NFTMarket is ReentrancyGuard {
     return items;
   }
 
-  /* Returns only items a user has created */
+  //@notice Returns only items a user has created and populates to the creator-dashboard page
   function fetchItemsCreated() public view returns (MarketItem[] memory) {
     uint totalItemCount = _itemIds.current();
     uint itemCount = 0;

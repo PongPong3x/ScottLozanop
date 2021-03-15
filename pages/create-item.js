@@ -711,8 +711,8 @@ import {
 // }
 // ];
 
-import NFT from './artifacts/contracts/NFT.sol/NFT.json'
-import Market from './artifacts/contracts/Market.sol/NFTMarket.json'
+import NFT from './NFT.json'
+import Market from './NFTMarket.json'
 
 
 

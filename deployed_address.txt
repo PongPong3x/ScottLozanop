@@ -1,8 +1,9 @@
 The contract addresses and mumbai testnet where deployed with Infura.
 
 
-export const nftmarketaddress = "0xCc0360cAF11c720E3a4931E09d2954b856BF0f36"
+nftmarketaddress = "0xE07AE935936616a49C576357dEBca915f1C00B05"
 
-export const nftaddress = "0x93829b9043214f0cF985fED36d3fBaf22dbD163F"
+nftaddress = "0x8197Ebd4BbD3B1f05dF5F7A523E1199de0C9c0D1"
 
-export const rpc_url = "https://polygon-mumbai.infura.io/v3/9a6356648ece4a32a0f10e75fc6552f6"
+INFURA URL = "https://polygon-mumbai.infura.io/v3/3d67dbef6f8b488780529a324416cb0d"
+

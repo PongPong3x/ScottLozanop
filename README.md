@@ -2,62 +2,38 @@
 
 ## Objectives
 
-1) Should allow only creator to log in and upload content to her marketplace page. 
+1) Should allow only creator to log in and upload content to her marketplace page. To achieve this this app uses nextauth simple credentials. 
 
-From create-item.js
+ TBD Uses credentials stored in .env Server-side access control not exceptionally secure. Need to base this on NFT ownership validation like BAYC. Not yet implemented.
 
-<!-- import { useRouter } from 'next/router'
-import { Link } from 'next/link'
-
-...
-
-export default function CreateItem({}) {
-  
-  const [session, loading] = useSession()
-  ...  -->
-
-From index.js
-
-<!-- import { signIn, signOut, useSession } from "next-auth/client"
-
-...
-
-export default function Home() {
-
-const [session, loading] = useSession()
-...
-
-async function buyNft(nft) {
-
-... 
-
- if (loading) {
-    return <p>Loading...</p>
-  }
-
- ... -->
-
- TBD Uses credentials stored in .env.local. Server-side access control not exceptionally secure. Need to base this on NFT ownership validation like BAYC.
-
- 
 
 2) When a user purchases an item, the purchase price will be transferred from the buyer to the seller (the artist in this case should be the only one who can create) and the item will be transferred from the marketplace to the buyer.
 
 3) The marketplace owner will be able to set a listing fee. This fee will be taken from the seller and transferred to the contract owner upon completion of any sale, enabling the owner of the marketplace to earn recurring revenue from any sale transacted in the marketplace.
 
-4) Users can search on the homepage by querying the GraphQL (TBD)
+4) Users can search on the homepage by querying the GraphQL (TBD) Not implemented in this project.
 
 
 ## Installing Dependencies:
 
 1. Clone repository
-2. npm install 
+2. Run "npm install" for all dependencies
+3. Compile contracts with "npx hardhat compile" to generate the artifacts
 
 ## Accessing Project
 
 1. In project directory, spin up a hardhat node: npx hardhat node
-2. In seperate terminal window, run command npx hardhat run scripts/deploy.js --network mumbai
-3. Navigate to localhost in your browser
+2. Create file ".secret" with a private key of the address 0 from the node terminal window
+3. In seperate terminal window, run command npx hardhat run scripts/deploy.js --network mumbai
+4. Navigate to localhost in your browser
+5. You will not be able to sign in without creating a .env file with the following three parameters( make the URL localhost and the username and password of your choice. Password needs to be between quotations to work):
+
+NEXTAUTH_URL=
+NEXTAUTH_USERNAME=
+NEXTAUTH_PASSWORD=""
+
+6. Import a few accounts including account 0 from the node running into metamask to test.
+7. Don't forget to log out before switching addresses to test purchasing. Otherwise, any address can create items. 
 
 ## Running Unit Tests
 

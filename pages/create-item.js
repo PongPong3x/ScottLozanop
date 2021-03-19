@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { ethers } from 'ethers'
 import { create as ipfsHttpClient } from 'ipfs-http-client'
 import { useRouter } from 'next/router'
-import { Web3Modal }  from 'web3modal'
-import { detectEthereumProvider } from '@metamask/detect-provider'
+import  Web3Modal   from 'web3modal'
+import  detectEthereumProvider  from '@metamask/detect-provider'
 import { signIn, useSession } from "next-auth/client"
 import { Link } from 'next/link'
 

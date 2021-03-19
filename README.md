@@ -28,9 +28,9 @@
 4. Navigate to localhost in your browser
 5. You will not be able to sign in without creating a .env file with the following three parameters( make the URL localhost and the username and password of your choice. Password needs to be between quotations to work):
 
-NEXTAUTH_URL=
-NEXTAUTH_USERNAME=
-NEXTAUTH_PASSWORD=""
+    - NEXTAUTH_URL=
+    - NEXTAUTH_USERNAME=
+    - NEXTAUTH_PASSWORD=""
 
 6. Import a few accounts including account 0 from the node running into metamask to test.
 7. Don't forget to log out before switching addresses to test purchasing. Otherwise, any address can create items. 

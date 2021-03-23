@@ -25,15 +25,16 @@
 1. In project directory, spin up a hardhat node: npx hardhat node
 2. Create file ".secret" with a private key of the address 0 from the node terminal window
 3. In seperate terminal window, run command npx hardhat run scripts/deploy.js --network mumbai
-4. Navigate to localhost in your browser
-5. You will not be able to sign in without creating a .env file with the following three parameters( make the URL localhost and the username and password of your choice. Password needs to be between quotations to work):
+4. Run "npm run dev"  in terminal
+5. Navigate to localhost in your browser
+6. You will not be able to sign in without creating a .env file with the following three parameters( make the URL localhost and the username and password of your choice. Password needs to be between quotations to work):
 
     - NEXTAUTH_URL=
     - NEXTAUTH_USERNAME=
     - NEXTAUTH_PASSWORD=""
 
-6. Import a few accounts including account 0 from the node running into metamask to test.
-7. Don't forget to log out before switching addresses to test purchasing. Otherwise, any address can create items. 
+7. Import a few accounts including account 0 from the node running into metamask to test.
+8. Don't forget to log out before switching addresses to test purchasing. Otherwise, any address can create items. 
 
 ## Running Unit Tests
 

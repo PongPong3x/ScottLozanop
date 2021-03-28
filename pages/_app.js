@@ -46,7 +46,7 @@ const connectWalletPressed = async () => {
           </Link>
           <Link href="/create-item">
             <a className="mr-6 text-blue-500">
-              Sell Digital Asset
+              Jaleh Creation Studio
             </a>
           </Link>
           <Link href="/creator-dashboard">

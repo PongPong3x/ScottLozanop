@@ -36,12 +36,12 @@ const connectWalletPressed = async () => {
         
           <Link href="/">
             <a className="mr-4 text-blue-500">
-              Home
+              Marketplace
             </a>
           </Link>
           <Link href="/my-assets">
             <a className="mr-6 text-blue-500">
-              My Digital Assets
+              NFTs I Own
             </a>
           </Link>
           <Link href="/create-item">
@@ -51,7 +51,7 @@ const connectWalletPressed = async () => {
           </Link>
           <Link href="/creator-dashboard">
             <a className="mr-6 text-blue-500">
-              Creator Dashboard
+              AOJ Dashboard
             </a>
           </Link>
             <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-2 border-b-4 border-blue-700 hover:border-blue-500 rounded" id="walletButton" onClick={connectWalletPressed}>

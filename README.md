@@ -1,5 +1,7 @@
 # Art Market
 
+* See the site deployed here: https://artmarket.netlify.app
+
 ## Objectives
 
 1) Should allow only creator to log in and upload content to her marketplace page. To achieve this this app uses nextauth simple credentials. 

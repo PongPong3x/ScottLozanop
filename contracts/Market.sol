@@ -16,15 +16,15 @@ contract NFTMarket is ReentrancyGuard {
   Counters.Counter private _itemsSold;
 
   address payable owner;
-//@Dev Owner has to pay this. Since it's only the creator, it may be best to set this to 0
+//@dev Owner has to pay this. Since it's only the creator, it may be best to set this to 0
   uint256 listingPrice = 0.00023 ether;
 
-//@Dev Constructor sets variable owner, that must be payable and the one who calls functions as the sender to mint nfts.
+//@dev Constructor sets variable owner, that must be payable and the one who calls functions as the sender to mint nfts.
   constructor() {
     owner = payable(msg.sender);
   }
 
-//Make a struct to store all the states applicable to each market item.
+//@dev Make a struct to store all the states applicable to each market item.
   struct MarketItem {
     uint itemId;
     address nftContract;
@@ -124,7 +124,6 @@ contract NFTMarket is ReentrancyGuard {
       //@dev Display all items owned by creator 
       if (idToMarketItem[i + 1].owner == address(0)) {
         uint currentId = i + 1;
-        //@dev 
         MarketItem storage currentItem = idToMarketItem[currentId];
         items[currentIndex] = currentItem;
         currentIndex += 1;

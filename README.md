@@ -38,6 +38,14 @@
 7. Import a few accounts including account 0 from the node running into metamask to test.
 8. Don't forget to log out before switching addresses to test purchasing. Otherwise, any address can create items. 
 
+## For Local Development/Deployment
+1. In Pages docs create-item, index, my-assets and creator-dashboard, replace the two import statements with the path to the .json files for both contracts in your artifacts directory after compiling. The Import paths to replace will resemble '../artifacts/contracts/Market.sol/NFTMarket.json' Below are the import statements to change:
+    
+    -import NFT from './NFT.json'
+    -import Market from './NFTMarket.json'
+
+2. After changing the import path, you can delete NFT.json and NFTMarket.json in the pages directory
+
 ## Running Unit Tests
 
 1. In terminal, in root directory, run npx hardhat test

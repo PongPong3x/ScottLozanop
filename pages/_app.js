@@ -35,12 +35,12 @@ const connectWalletPressed = async () => {
         <div className="flex mt-4" >
         
           <Link href="/">
-            <a className="mr-4 text-blue-500 text-6xl">
+            <a className="mr-4 text-blue-500 text-3xl">
               Marketplace
             </a>
           </Link>
           <Link href="/my-assets">
-            <a className="mr-6 text-blue-500 text-6xl">
+            <a className="mr-6 text-blue-500 text-3xl">
               NFTs Owned
             </a>
           </Link>

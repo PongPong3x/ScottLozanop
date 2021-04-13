@@ -1,6 +1,7 @@
 # Art Market
 
 * See the site deployed here: https://artmarket.netlify.app
+* See the site walkthrough here: https://loom.com/share/4e6fec897b7d49ee90e2e406123b9d50
 
 ## Objectives
 
@@ -20,7 +21,12 @@
 
 1. Clone repository
 2. Run "npm install" for all dependencies
-3. Compile contracts with "npx hardhat compile" to generate the artifacts
+3. 
+4. Compile contracts with "npx hardhat compile" to generate the artifacts
+5. In config.js, populate the following variables with the deployed address of all the contracts and the testnet or mainnet of your choice where deployed. This example uses infura:
+    - export const nftmarketaddress = "0x..."
+    - export const nftaddress = "0x..."
+    - export const rpc_url = "https://polygon-mumbai.infura.io/v3/{projectIDHere}"
 
 ## Accessing Project
 

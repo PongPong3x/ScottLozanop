@@ -1,7 +1,7 @@
 # Art Market
 
 * See the site deployed here: https://artmarket.netlify.app
-* See the site walkthrough here: https://loom.com/share/4e6fec897b7d49ee90e2e406123b9d50
+* See the site walkthrough here: https://www.loom.com/share/dd5886c281654d8d9a93e07b13fe23bf
 
 ## Objectives
 

@@ -3,6 +3,8 @@
 * See the site deployed here: https://artmarket.netlify.app
 * See the site walkthrough here: https://www.loom.com/share/dd5886c281654d8d9a93e07b13fe23bf
 
+https://www.loom.com/share/4604b575788848e983be0953adae0f02?sharedAppSource=personal_library (original link didn't work. Posted from a new Loom account above. Here is the original link which did not work. 
+
 ## Objectives
 
 1) Should allow only creator to log in and upload content to her marketplace page. To achieve this this app uses nextauth simple credentials. 
